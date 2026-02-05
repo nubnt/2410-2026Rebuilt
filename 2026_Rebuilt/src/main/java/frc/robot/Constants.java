@@ -21,6 +21,9 @@ public final class Constants {
     public static final int kDriverControllerPort = 0;
     public static final int kFunctionsControllerPort = 1;
 
+    //Intake
+    public static final int KIntakeMotor = 10;
+
     //Drive Motors
     public static final int kFrontLeftDrive = 5;
     public static final int kFrontRightDrive = 3;
