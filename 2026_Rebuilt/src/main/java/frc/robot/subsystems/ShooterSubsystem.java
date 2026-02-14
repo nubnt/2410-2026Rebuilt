@@ -13,8 +13,10 @@ public class ShooterSubsystem extends SubsystemBase{
     private SparkMax feedRollers = new SparkMax(0, MotorType.kBrushless);
 
 
+    /**
+     * Shoots balls currently loaded in the machine.
+     */
     public void shoot(){
-
         flywheel.set(0.5);
         backRollers.set(0.5);
         feedRollers.set(0.5);
