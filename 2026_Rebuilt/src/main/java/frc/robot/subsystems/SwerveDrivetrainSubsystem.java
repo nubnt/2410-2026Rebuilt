@@ -78,11 +78,11 @@ public class SwerveDrivetrainSubsystem extends SubsystemBase{
     static ChassisSpeeds chassisSpeeds = new ChassisSpeeds(); 
     
     
-    
-        public SwerveDrivetrainSubsystem(){   
-             
+        /**
+         * Constructor.
+         */
+        public SwerveDrivetrainSubsystem(){
             
-    
         }
     
         // public double getCurrentYaw(){
@@ -94,34 +94,38 @@ public class SwerveDrivetrainSubsystem extends SubsystemBase{
     
         
 
-    
+        /**
+         * Converts controller input into a ChassisSpeeds object
+         */
         public void driveSwerve(CommandJoystick driveController ){
 
+            // gets orientation (yaw axis) of robot
             Yaw = Navx.getRotation2d();
 
+            // sets velocities based off controller input
             double velocityX = -1 * driveController.getY();
             double velocityY = 1 * driveController.getX();
             double omega = 1 * driveController.getZ();
             
-
+            // Applies controller deadzones: if input is below 0.1, ignore it
             if(Math.abs(velocityX) < 0.1) velocityX = 0;
             if(Math.abs(velocityY) < 0.1) velocityY = 0;
             if(Math.abs(omega) < 0.1) omega = 0;
     
        
-    
+            // prints info to console
             System.out.println("Velocity X: " + velocityX);
             System.out.println("Velocity Y: "+ velocityY);
             System.out.println("Omega: "+omega);
             System.out.println("FUSEDHEADING"+Navx.getFusedHeading()+"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
 
-    
+            // Creates a ChassisSpeeds object from the velocities obtained earlier
             chassisSpeeds = new ChassisSpeeds();
             chassisSpeeds = ChassisSpeeds.fromFieldRelativeSpeeds(velocityX,velocityY, omega, Yaw);
     
             setSpeed(chassisSpeeds);
     
-            
+            //
             position[0] = frontLeftModule.modulePosition;
             position[1] = frontRightModule.modulePosition;
             position[2] = backLeftModule.modulePosition;
@@ -140,8 +144,10 @@ public class SwerveDrivetrainSubsystem extends SubsystemBase{
         }
 
             
-            
-        public  void setSpeed(ChassisSpeeds speed){
+        /**
+         * Takes the ChassisSpeeds and makes the motors spin accordingly.
+         */
+        public void setSpeed(ChassisSpeeds speed){
             // System.out.println("Setting states " );
             System.out.println("Speed: "+speed);
             states = kinematics.toSwerveModuleStates(speed);
