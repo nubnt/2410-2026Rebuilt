@@ -9,13 +9,24 @@ public class IntakeSubsystem extends SubsystemBase{
 
     private SparkMax intakeRoller = new SparkMax(0, MotorType.kBrushless);
 
-
+    /**
+     * Spins intake roller to accept balls into the robot.
+     */
     public void intake(){
         intakeRoller.set(1);
     }
-
+    /**
+     * Spins intake roller to unload balls currently inside the robot.
+     */
     public void outake(){
         intakeRoller.set(-1);
+    }
+
+    /**
+     * Stops the intake roller.
+     */
+    public void stop(){
+        intakeRoller.set(0);
     }
 
 }
