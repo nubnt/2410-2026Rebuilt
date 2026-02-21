@@ -18,7 +18,7 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
  */
 public class ShooterSubsystem extends SubsystemBase{
     private static final Logger logger = Logger.getLogger("ShooterSubsystem");
-    private static final double MOTOR_POWER_MULT = Constants.shoooterPowerConversion;
+    private static final double MOTOR_RPM_MULT = Constants.shoooterPowerConversion;
     private SparkMax flywheel = new SparkMax(0, MotorType.kBrushless);
     private SparkMax backRollers = new SparkMax(0, MotorType.kBrushless);
     private SparkMax feedRollers = new SparkMax(0, MotorType.kBrushless);
@@ -62,13 +62,15 @@ public class ShooterSubsystem extends SubsystemBase{
      * Shoots balls at power level dependent on distance, [insert maximum shooting distance here].
      * @param distance The distance from the thing you're trying to shoot.
      * @since v1.0.0
-     * @version v1.0.0
+     * @version v1.1.0
      */
     public void shootAtDistance(double distance){
-        double power = Math.sqrt(distance)*MOTOR_POWER_MULT;
-        // TODO: add a fancy log here telling you about the maximum distance if you exceed it, and also set power to 1.0
+        double rpm = Math.sqrt(distance)*MOTOR_RPM_MULT;
+        // TODO: add a fancy log here telling you about the maximum distance if you exceed it, and also set rpm to max rpm
         
-        shoot(power);
+        flywheel.set(rpm,ControlType.kVelocity);
+        backRollers.set(rpm,ControlType.kVelocity);
+        setFeedRollers();
     }
 
     /**
