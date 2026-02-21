@@ -34,7 +34,8 @@ import frc.robot.Swerve.SwerveModule;
 
 
 /**
- * 
+ * This class lets you drive the robot around! Whee!!!
+ * @version v0.0.0
  */
 public class SwerveDrivetrainSubsystem extends SubsystemBase{
 
