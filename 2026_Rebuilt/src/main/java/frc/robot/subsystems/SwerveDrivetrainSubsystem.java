@@ -33,7 +33,9 @@ import frc.robot.RobotContainer;
 import frc.robot.Swerve.SwerveModule;
 
 
-/** Add your docs here. */
+/**
+ * 
+ */
 public class SwerveDrivetrainSubsystem extends SubsystemBase{
 
 
@@ -95,7 +97,8 @@ public class SwerveDrivetrainSubsystem extends SubsystemBase{
         
 
         /**
-         * Converts controller input into a ChassisSpeeds object
+         * Converts controller input into a ChassisSpeeds object to be passed to method setSpeed(ChassisSpeeds). Then, updates list of SwerveModulePosition objects.
+         * @param driveController The controller input to use
          */
         public void driveSwerve(CommandJoystick driveController ){
 
@@ -125,7 +128,7 @@ public class SwerveDrivetrainSubsystem extends SubsystemBase{
     
             setSpeed(chassisSpeeds);
     
-            //
+            // Updates list of SweveModulePosition objects
             position[0] = frontLeftModule.modulePosition;
             position[1] = frontRightModule.modulePosition;
             position[2] = backLeftModule.modulePosition;
@@ -146,6 +149,7 @@ public class SwerveDrivetrainSubsystem extends SubsystemBase{
             
         /**
          * Takes the ChassisSpeeds and makes the motors spin accordingly.
+         * @param speed A ChassisSpeeds object configured using method fromFieldRelativeSpeeds(xVel, yVel, omega, yaw)
          */
         public void setSpeed(ChassisSpeeds speed){
             // System.out.println("Setting states " );
@@ -159,7 +163,7 @@ public class SwerveDrivetrainSubsystem extends SubsystemBase{
             backLeftModule.setModuleState(states[2]);
             backRightModule.setModuleState(states[3]);
 
-            //Printing out yaw
+            // Prints out yaw
             // SmartDashboard.putNumber("YAW", Yaw);   
             
 
@@ -181,6 +185,9 @@ public class SwerveDrivetrainSubsystem extends SubsystemBase{
          
         }
 
+        /**
+         * Getter method for Swer- THIS JUST RECURSES INFINITELY :sob:
+         */
         public SwerveDriveKinematics getSwerveKinematics(){
             return this.getSwerveKinematics();
         }
