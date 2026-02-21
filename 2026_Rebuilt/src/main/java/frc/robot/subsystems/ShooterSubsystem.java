@@ -14,7 +14,7 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 /**
  * Shoots balls currently loaded in the machine.
- * @version v1.0.1
+ * @version v1.1.1
  */
 public class ShooterSubsystem extends SubsystemBase{
     private static final Logger logger = Logger.getLogger("ShooterSubsystem");
@@ -62,7 +62,7 @@ public class ShooterSubsystem extends SubsystemBase{
      * Shoots balls at power level dependent on distance, [insert maximum shooting distance here].
      * @param distance The distance from the thing you're trying to shoot.
      * @since v1.0.0
-     * @version v1.1.0
+     * @version v1.1.1
      */
     public void shootAtDistance(double distance){
         double rpm = Math.sqrt(distance)*MOTOR_RPM_MULT;
