@@ -13,6 +13,10 @@ package frc.robot;
  * constants are needed, to reduce verbosity.
  */
 public final class Constants {
+  public static class LiterallyTheOnlyShooterConstant {
+    // Placeholder value. One day, we'll have to go and brute force this number so that balls land in the basket correctly
+    public static final double motorPowerConversion = 0.05;
+  }
   public static class OperatorConstants {
     public static final int kDriverControllerPort = 0;
   }
