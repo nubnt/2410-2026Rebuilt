@@ -68,8 +68,8 @@ public class ShooterSubsystem extends SubsystemBase{
         double rpm = Math.sqrt(distance)*MOTOR_RPM_MULT;
         // TODO: add a fancy log here telling you about the maximum distance if you exceed it, and also set rpm to max rpm
         
-        flywheel.set(rpm,ControlType.kVelocity);
-        backRollers.set(rpm,ControlType.kVelocity);
+        flywheel.setReference(rpm,ControlType.kVelocity);
+        backRollers.setReference(rpm,ControlType.kVelocity);
         setFeedRollers();
     }
 
