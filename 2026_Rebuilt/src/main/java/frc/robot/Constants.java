@@ -38,7 +38,7 @@ public final class Constants {
     public static final int kBackRightSteering = 6;
 
     //Shooter Motor
-    public static final double shoooterPowerConversion = 0.5;
+    public static final double shoooterPowerConversion = 0.05;
     
     //Encoders
 
