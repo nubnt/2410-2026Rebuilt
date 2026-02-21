@@ -14,11 +14,11 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 /**
  * Shoots balls currently loaded in the machine.
- * @version v1.0.0
+ * @version v1.0.1
  */
 public class ShooterSubsystem extends SubsystemBase{
     private static final Logger logger = Logger.getLogger("ShooterSubsystem");
-    private static final double MOTOR_POWER_MULT = Constants.LiterallyTheOnlyShooterConstant.motorPowerConversion;
+    private static final double MOTOR_POWER_MULT = Constants.shoooterPowerConversion;
     private SparkMax flywheel = new SparkMax(0, MotorType.kBrushless);
     private SparkMax backRollers = new SparkMax(0, MotorType.kBrushless);
     private SparkMax feedRollers = new SparkMax(0, MotorType.kBrushless);
