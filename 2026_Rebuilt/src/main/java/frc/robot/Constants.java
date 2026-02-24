@@ -38,10 +38,12 @@ public final class Constants {
     public static final int kBackRightSteering = 6;
 
     //Shooter Motor
-    public static final double shoooterPowerConversion = 0.05;
+    public static final double shoooterPowerConversion = 1;
 
     //Shooter Math
-    public static final double hoopHeight = 1.8288; //Later, adjust this to be a bit lower
+    public static final double hoopHeight = 1.8288; //Later, adjust this a bit so we don't keep landing rim shots (in theory)
+    public static final double gravity = 9.81;
+    public static final double gravity_kansas = 9.806; //adjusted for KANSAS SEA LEVEL BECAUSE I AM A TRYHARD
     
     //Encoders
     public static final int kFrontLeftEncoder = 1;
