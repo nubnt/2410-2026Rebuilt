@@ -38,7 +38,7 @@ public final class Constants {
     public static final int kBackRightSteering = 6;
 
     //Shooter Motor
-    public static final double shoooterPowerConversion = 1;
+    public static final double shoooterPowerConversion = 0.15707963267; //wheel diameter (5cm) * pi, in meters
 
     //Shooter Math
     public static final double hoopHeight = 1.8288; //Later, adjust this a bit so we don't keep landing rim shots (in theory)
