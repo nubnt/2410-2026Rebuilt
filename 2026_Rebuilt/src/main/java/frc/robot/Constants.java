@@ -39,6 +39,9 @@ public final class Constants {
 
     //Shooter Motor
     public static final double shoooterPowerConversion = 0.05;
+
+    //Shooter Math
+    public static final double hoopHeight = 1.8288; //Later, adjust this to be a bit lower
     
     //Encoders
     public static final int kFrontLeftEncoder = 1;
